@@ -13,7 +13,7 @@
         <property name="scopes">
             <map>
                 <entry key="view">
-                    <bean class="com.github.javaplugs.springJsf.ViewScope"/>
+                    <bean class="com.github.javaplugs.springjsf.ViewScope"/>
                 </entry>
             </map>
         </property>

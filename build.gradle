@@ -5,8 +5,11 @@ repositories {
 }
 
 dependencies {
-    compile 'org.springframework:spring-context:3.+'
-    compile 'com.sun.faces:jsf-api:2.+'
-    compile 'org.slf4j:slf4j-api:1.+'
-    compile 'javax.servlet:servlet-api:2.+'
+    runtime 'org.springframework:spring-context:3.+'
+    runtime 'com.sun.faces:jsf-api:2.+'
+    runtime 'org.slf4j:slf4j-api:1.+'
+    runtime 'javax.servlet:servlet-api:2.+'
 }
+
+//Include runtime for compilation
+sourceSets.main.compileClasspath += configurations.runtime

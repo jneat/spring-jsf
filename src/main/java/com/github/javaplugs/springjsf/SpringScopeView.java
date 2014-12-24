@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.github.javaplugs.springJsf;
+package com.github.javaplugs.springjsf;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
@@ -31,11 +31,11 @@ import java.lang.annotation.Target;
 
 /**
  * @author rumatoest
- * @author m.nikolaev Date: 21.11.12 Time: 1:01 File | Settings | File Templates.
+ * @author m.nikolaev Date: 21.11.12 Time: 1:01
  */
 @Qualifier
-@Scope("session")
+@Scope("view")
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface SpringScopeSession {
+public @interface SpringScopeView {
 }
