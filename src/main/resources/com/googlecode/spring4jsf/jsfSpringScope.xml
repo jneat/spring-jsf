@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframewrk.org/schema/beans/spring-beans-3.0.xsd">
+    
+    <!-- 
+        Add next line in your applicationContext.xml
+        <import resource="classpath:/com/googlecode/spring4jsf/jsfSpringScope.xml"/>
+    -->
+    
+    <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="view">
+                    <bean class="com.googlecode.spring4jsf.scope.ViewScope"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+</beans>

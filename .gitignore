@@ -1,0 +1,28 @@
+#Java specific
+*.class
+.gradle
+
+#Build and cache dirs
+/private
+/build
+
+#IDE
+nbproject
+nb-configuration.xml
+nbactions.xml
+.nb-gradle
+.nb-gradle-properties
+.settings
+.idea
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+
+#Generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
