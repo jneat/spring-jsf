@@ -6,7 +6,7 @@
     
     <!-- 
         Add next line in your applicationContext.xml
-        <import resource="classpath:/com/github/javaplugs/springJsf/jsfSpringScope.xml"/>
+        <import resource="classpath:/com/github/javaplugs/springjsf/jsfSpringScope.xml"/>
     -->
     
     <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">

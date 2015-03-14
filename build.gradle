@@ -1,4 +1,12 @@
 apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+group = 'org.github.javaplugs'
+version = '0.1.0'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
 
 repositories {
     mavenCentral()
@@ -13,3 +21,15 @@ dependencies {
 
 //Include runtime for compilation
 sourceSets.main.compileClasspath += configurations.runtime
+
+
+publishing {
+    publications {
+        mavenJar(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+// Tasks
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'

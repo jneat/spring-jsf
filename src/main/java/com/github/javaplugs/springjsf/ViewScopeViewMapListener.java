@@ -39,15 +39,15 @@ public class ViewScopeViewMapListener implements ViewMapListener {
 
     private static final Logger logger = LoggerFactory.getLogger(ViewScopeViewMapListener.class);
 
-    private String name;
+    private final String name;
 
-    private Runnable callback;
+    private final Runnable callback;
 
     private boolean callbackCalled = false;
 
-    private WeakReference<UIViewRoot> uiViewRootWeakReference;
+    private final WeakReference<UIViewRoot> uiViewRootWeakReference;
 
-    private ViewScope viewScope;
+    private final ViewScope viewScope;
 
     public ViewScopeViewMapListener(UIViewRoot root, String name, Runnable callback, ViewScope viewScope) {
         this.name = name;
