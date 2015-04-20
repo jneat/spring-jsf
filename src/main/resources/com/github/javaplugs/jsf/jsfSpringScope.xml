@@ -6,14 +6,14 @@
     
     <!-- 
         Add next line in your applicationContext.xml
-        <import resource="classpath:/com/github/javaplugs/springjsf/jsfSpringScope.xml"/>
+        <import resource="classpath:/com/github/javaplugs/jsf/jsfSpringScope.xml"/>
     -->
     
     <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
         <property name="scopes">
             <map>
                 <entry key="view">
-                    <bean class="com.github.javaplugs.springjsf.ViewScope"/>
+                    <bean class="com.github.javaplugs.jsf.ViewScope"/>
                 </entry>
             </map>
         </property>

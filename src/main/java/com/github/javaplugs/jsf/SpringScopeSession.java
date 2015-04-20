@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014 Vladislav Zablotsky
+ * Copyright (c) 2015 Vladislav Zablotsky
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.github.javaplugs.springjsf;
+package com.github.javaplugs.jsf;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
@@ -30,12 +30,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author rumatoest
- * @author m.nikolaev Date: 21.11.12 Time: 1:01
+ * Indicates that spring bean instance will be in JSF like session scope.
  */
 @Qualifier
-@Scope("view")
+@Scope("session")
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface SpringScopeView {
+public @interface SpringScopeSession {
 }

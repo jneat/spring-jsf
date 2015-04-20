@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014 Vladislav Zablotsky
+ * Copyright (c) 2015 Vladislav Zablotsky
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,10 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.github.javaplugs.springjsf;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.github.javaplugs.jsf;
 
 import javax.faces.component.UIViewRoot;
 import javax.faces.event.AbortProcessingException;
@@ -30,14 +27,20 @@ import javax.faces.event.PreDestroyViewMapEvent;
 import javax.faces.event.SystemEvent;
 import javax.faces.event.ViewMapListener;
 import java.lang.ref.WeakReference;
+import org.apache.log4j.Logger;
 
 /**
- * @author rumatoest
- * @author Michail Nikolaev ate: 21.11.12 Time: 0:37
+ * Listener for processing ViewMapDestroydEvent
+ * that indicates the argument root just had its associated view map destroyed.
+ *
+ * @see javax.faces.event.PreDestroyViewMapEvent
+ *
+ * @author Vladislav Zablotsky
+ * @author Michail Nikolaev (original codebase author)
  */
 public class ViewScopeViewMapListener implements ViewMapListener {
 
-    private static final Logger logger = LoggerFactory.getLogger(ViewScopeViewMapListener.class);
+    private static final Logger logger = Logger.getLogger(ViewScope.class);
 
     private final String name;
 
@@ -56,25 +59,8 @@ public class ViewScopeViewMapListener implements ViewMapListener {
         this.viewScope = viewScope;
     }
 
-    @Override
-    public void processEvent(SystemEvent event) throws AbortProcessingException {
-        if (event instanceof PreDestroyViewMapEvent) {
-            logger.debug("Going call callback for bean {}", name);
-            doCallback();
-            viewScope.clearFromListener(this);
-        }
-    }
-
-    public boolean checkRoot() {
-        if (uiViewRootWeakReference.get() == null) {
-            doCallback();
-            return true;
-        }
-        return false;
-    }
-
     public synchronized void doCallback() {
-        logger.debug("Going call callback for bean {}", name);
+        logger.trace("Going call callback for bean " + name);
         if (!callbackCalled) {
             try {
                 callback.run();
@@ -84,8 +70,22 @@ public class ViewScopeViewMapListener implements ViewMapListener {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public boolean isListenerForSource(Object source) {
         return (source == uiViewRootWeakReference.get());
     }
+
+    @Override
+    public void processEvent(SystemEvent event) throws AbortProcessingException {
+        if (event instanceof PreDestroyViewMapEvent) {
+            logger.trace("Going call callback for bean " + name);
+            doCallback();
+            viewScope.unregisterListener(this);
+        }
+    }
+
 }
