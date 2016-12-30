@@ -26,14 +26,15 @@ task sourcesJar(type: Jar, dependsOn: classes) {
     from sourceSets.main.allSource
 }
 
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
+// SKIP Javadoc - because it fails on gitpack
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
 
 artifacts {
     archives sourcesJar
-    archives javadocJar
+    //archives javadocJar
 }
 
 publishing {
@@ -43,9 +44,9 @@ publishing {
             artifact sourcesJar {
                 classifier "sources"
             }
-            artifact javadocJar {
-                classifier "javadoc"
-            }
+            //artifact javadocJar {
+            //    classifier "javadoc"
+            //}
         }
     }
 }
