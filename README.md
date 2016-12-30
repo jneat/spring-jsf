@@ -9,36 +9,12 @@ This module provides appropriate Spring annotations for related JSF scopes:
 - @SpringScopeSession - for session scope
 - @SpringScopeView - for view scope
 
-## Adding to your project
+## Add to your project
 
-For now this package is available only via https://jitpack.io/
+You can add this artifact to your project using [JitPack](https://jitpack.io/#javaplugs/spring-jsf).  
+All versions list, instructions for gradle, maven, ivy etc. can be found by link above.
 
-### Gradle dependencies
-```
-repositories {
-  maven {
-    url "https://jitpack.io"
-  }
-}
-
-dependencies {
-  compile 'com.github.javaplugs:spring-jsf:0.1.1'
-}
-```
-
-### Maven dependencies
-```
-<repository>
-  <id>jitpack.io</id>
-  <url>https://jitpack.io</url>
-</repository>
-
-<dependency>
-  <groupId>com.github.javaplugs</groupId>
-  <artifactId>spring-jsf</artifactId>
-  <version>0.1.1</version>
-</dependency>
-```
+To get latest commit use -SNAPSHOT instead version number.
 
 ## Configuration
 
