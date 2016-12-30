@@ -22,7 +22,7 @@ repositories {
 }
 
 dependencies {
-  compile 'com.github.javaplugs:spring-jsf:0.1'
+  compile 'com.github.javaplugs:spring-jsf:0.1.1'
 }
 ```
 
@@ -36,7 +36,7 @@ dependencies {
 <dependency>
   <groupId>com.github.javaplugs</groupId>
   <artifactId>spring-jsf</artifactId>
-  <version>0.1</version>
+  <version>0.1.1</version>
 </dependency>
 ```
 
