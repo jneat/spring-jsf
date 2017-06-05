@@ -24,18 +24,18 @@ package com.github.javaplugs.jsf;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.config.Scope;
 
+import org.apache.log4j.Logger;
+
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PreDestroyViewMapEvent;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.WeakHashMap;
-import org.apache.log4j.Logger;
 
 /**
  * Implementation of JSF view scope for spring beans.
@@ -45,7 +45,7 @@ import org.apache.log4j.Logger;
  * @author Vladislav Zablotsky
  * @author Michail Nikolaev (original codebase author)
  */
-public class ViewScope implements Scope, Serializable, HttpSessionBindingListener {
+public class ViewScope implements Scope, HttpSessionBindingListener {
 
     private static final long serialVersionUID = 1L;
 

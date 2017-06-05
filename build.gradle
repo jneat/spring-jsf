@@ -2,10 +2,10 @@ apply plugin: 'java'
 apply plugin: 'maven-publish'
 
 group = 'com.github.javaplugs'
-version = '0.1.1'
+version = '0.1.2'
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
