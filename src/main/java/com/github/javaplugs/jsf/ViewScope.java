@@ -91,6 +91,7 @@ public class ViewScope implements Scope, HttpSessionBindingListener {
             synchronized (viewMap) {
                 if (viewMap.containsKey(name)) {
                     removed = FacesContext.getCurrentInstance().getViewRoot().getViewMap().remove(name);
+                    logger.trace("Removed bean " + name);
                 } else {
                     return null;
                 }
