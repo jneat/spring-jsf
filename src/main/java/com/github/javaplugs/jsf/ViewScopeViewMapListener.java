@@ -27,7 +27,7 @@ import javax.faces.event.PreDestroyViewMapEvent;
 import javax.faces.event.SystemEvent;
 import javax.faces.event.ViewMapListener;
 import java.lang.ref.WeakReference;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 /**
  * Listener for processing ViewMapDestroydEvent
@@ -40,7 +40,7 @@ import org.apache.log4j.Logger;
  */
 public class ViewScopeViewMapListener implements ViewMapListener {
 
-    private static final Logger logger = Logger.getLogger(ViewScope.class);
+    private static final Logger logger = LogManager.getLogger(ViewScope.class);
 
     private final String name;
 

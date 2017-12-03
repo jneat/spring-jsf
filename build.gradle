@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'maven-publish'
 
 group = 'com.github.javaplugs'
-version = '0.1.2'
+version = '0.2.0'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -12,10 +12,10 @@ repositories {
 }
 
 dependencies {
-    runtime 'com.sun.faces:jsf-api:2.1.0'
-    runtime 'javax.servlet:javax.servlet-api:3.0.1'
-    runtime 'log4j:log4j:1.2.16'
-    runtime group: 'org.springframework', name: 'spring-context', version: '[3.+,4.+]'
+    compile 'com.sun.faces:jsf-api:2.1.0'
+    compile 'javax.servlet:javax.servlet-api:3.0.1'
+    compile 'org.apache.logging.log4j:log4j-api:2.7'
+    compile 'org.springframework:spring-context:4.3.5.RELEASE'
 }
 
 //Include runtime for compilation
@@ -27,10 +27,10 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 }
 
 // SKIP Javadoc - because it fails on gitpack
-//task javadocJar(type: Jar, dependsOn: javadoc) {
-//    classifier = 'javadoc'
-//    from javadoc.destinationDir
-//}
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
 
 artifacts {
     archives sourcesJar
@@ -44,9 +44,9 @@ publishing {
             artifact sourcesJar {
                 classifier "sources"
             }
-            //artifact javadocJar {
-            //    classifier "javadoc"
-            //}
+            artifact javadocJar {
+                classifier "javadoc"
+            }
         }
     }
 }

@@ -26,3 +26,5 @@ nbactions.xml
 *.DS_Store
 *.swp
 *.out
+/.metadata/
+/bin/

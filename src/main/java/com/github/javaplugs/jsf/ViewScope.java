@@ -24,7 +24,7 @@ package com.github.javaplugs.jsf;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.config.Scope;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
@@ -49,7 +49,7 @@ public class ViewScope implements Scope, HttpSessionBindingListener {
 
     private static final long serialVersionUID = 1L;
 
-    private static final Logger logger = Logger.getLogger(ViewScope.class);
+    private static final Logger logger = LogManager.getLogger(ViewScope.class);
 
     private final WeakHashMap<HttpSession, Set<ViewScopeViewMapListener>> sessionToListeners = new WeakHashMap<>();
 
@@ -197,6 +197,7 @@ public class ViewScope implements Scope, HttpSessionBindingListener {
 
     /**
      * Will remove listener from session set and unregister it from UIViewRoot.
+     * @param listener The listener that must be removed from the list of sessions
      */
     public void unregisterListener(ViewScopeViewMapListener listener) {
         logger.debug("Removing listener from map");
